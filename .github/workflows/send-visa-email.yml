@@ -1,10 +1,10 @@
-name: Send Visa Email Daily
-
+name: Send Visa Email on Push
 
 on:
-  schedule:
-    - cron: "29 12 * * *"   # Runs daily at 6:29 PM Bangladesh time (UTC+6)
-  workflow_dispatch:      # Allow manual run
+  push:
+    branches:
+      - main     # Run whenever a commit is pushed to the main branch
+  workflow_dispatch:      # Allow manual run from Actions tab
 
 jobs:
   send-email:
@@ -15,4 +15,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run PowerShell Email Script
-        run: pwsh ./send-visa-email.ps1
+        shell: pwsh
+        run: ./send-visa-email.ps1
+
