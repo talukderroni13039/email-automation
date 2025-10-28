@@ -1,11 +1,13 @@
-name: Send Visa Email on Push
+name: Send Visa Email
 
 on:
   push:
     branches:
       - main     # Run whenever a commit is pushed to the main branch
-  workflow_dispatch:      # Allow manual run from Actions tab
-
+  schedule:
+    - cron: "0 13 * * *"   # Runs daily at 7:00 PM Bangladesh time (UTC+6)
+  workflow_dispatch:       # Allow manual run from Actions tab
+  
 jobs:
   send-email:
     runs-on: windows-latest
