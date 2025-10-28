@@ -2,7 +2,7 @@ name: Send Visa Email Daily
 
 on:
   schedule:
-    - cron: "0 4 * * *"   # Runs daily at 10:00 AM Bangladesh time (UTC+6)
+    - cron: "29 12 * * *"   # Runs daily at 6:29 PM Bangladesh time (UTC+6)
   workflow_dispatch:      # Allow manual run
 
 jobs:
