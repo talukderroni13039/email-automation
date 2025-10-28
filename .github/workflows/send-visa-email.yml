@@ -16,5 +16,5 @@ jobs:
 
       - name: Run PowerShell Email Script
         shell: pwsh
-        run: ./send-visa-email.ps1
+        run: ./send-email.ps1
 
