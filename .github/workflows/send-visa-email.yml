@@ -1,5 +1,6 @@
 name: Send Visa Email Daily
 
+
 on:
   schedule:
     - cron: "29 12 * * *"   # Runs daily at 6:29 PM Bangladesh time (UTC+6)
