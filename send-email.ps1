@@ -4,7 +4,7 @@ $smtpPort   = 587
 $useSsl     = $true
 
 # Your email credentials
-$username = "talukder.roni.ict@gmail.com"
+$username = "hc.dhaka@mea.gov.in"
 $password = "lasymiamgswokpgf"  # Your Gmail app password
 $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential ($username, $securePassword)
@@ -13,12 +13,11 @@ $credential = New-Object System.Management.Automation.PSCredential ($username, $
 $from = $username
 $to = $username             # Keep your email here for BCC trick
 $bcc = @(
-    "hc.dhaka@mea.gov.in",
     "visahelp.dhaka@mea.gov.in",
     "hcoffice.dhaka@mea.gov.in"
 )
 
-$subject = "Request for Obtaining Appointment Date for Double Entry Visa"
+$subject = "Kind Request for Appointment Date – Double Entry Visa"
 $body = @"
 <html>
 <body style='font-family:Segoe UI, Arial, sans-serif; font-size:14px; color:#222; line-height:1.6;'>
@@ -75,10 +74,11 @@ $attachments = @(
 )
 
 # Send email  -Bcc $bcc
-Send-MailMessage -From $from -To $to -Subject $subject -Body $body `
+Send-MailMessage -From $from -To $to -Bcc $bcc -Subject $subject -Body $body ` 
 -SmtpServer $smtpServer -Port $smtpPort -UseSsl:$useSsl -Credential $credential -Attachments $attachments -BodyAsHtml:$true
 
 Write-Host "Email sent successfully!"
+
 
 
 
