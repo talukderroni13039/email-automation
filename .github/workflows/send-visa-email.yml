@@ -2,12 +2,12 @@ name: Send Visa Email
 
 on:
   schedule:
-    - cron: "30 3 * * 2,4,7"   # Runs every Tue, Thu, Sun at 9:30 AM Bangladesh time (UTC+6)
+    - cron: "30 3 * * 2,4,0"   # Runs every Tue, Thu, Sun at 9:30 AM Bangladesh time (UTC+6)
   workflow_dispatch:           # Allow manual run from Actions tab
   push:
     branches:
-      - main            # Runs whenever a commit is pushed to main-test branch
-  
+      - main             # Runs on push to main-test branch
+ 
 jobs:
   send-email:
     runs-on: windows-latest
