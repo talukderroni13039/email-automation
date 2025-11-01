@@ -4,14 +4,14 @@ $smtpPort   = 587
 $useSsl     = $true
 
 # Your email credentials
-$username = "hc.dhaka@mea.gov.in"
+$username = "talukder.roni.ict@gmail.com"
 $password = "lasymiamgswokpgf"  # Your Gmail app password
 $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential ($username, $securePassword)
 
 # --- Email Details ---
 $from = $username
-$to = $username             # Keep your email here for BCC trick
+$to ="hc.dhaka@mea.gov.in"            # Keep your email here for BCC trick
 $bcc = @(
     "visahelp.dhaka@mea.gov.in",
     "hcoffice.dhaka@mea.gov.in"
@@ -78,6 +78,7 @@ Send-MailMessage -From $from -To $to -Bcc $bcc -Subject $subject -Body $body `
 -SmtpServer $smtpServer -Port $smtpPort -UseSsl:$useSsl -Credential $credential -Attachments $attachments -BodyAsHtml:$true
 
 Write-Host "Email sent successfully!"
+
 
 
 
