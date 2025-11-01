@@ -11,7 +11,7 @@ $credential = New-Object System.Management.Automation.PSCredential ($username, $
 
 # --- Email Details ---
 $from = $username
-$to ="hc.dhaka@mea.gov.in"            # Keep your email here for BCC trick
+$to =  $username                      # "hc.dhaka@mea.gov.in"            # Keep your email here for BCC trick
 $bcc = @(
     "visahelp.dhaka@mea.gov.in",
     "hcoffice.dhaka@mea.gov.in"
@@ -78,6 +78,7 @@ Send-MailMessage -From $from -To $to -Bcc $bcc -Subject $subject -Body $body `
 -SmtpServer $smtpServer -Port $smtpPort -UseSsl:$useSsl -Credential $credential -Attachments $attachments -BodyAsHtml:$true
 
 Write-Host "Email sent successfully!"
+
 
 
 
