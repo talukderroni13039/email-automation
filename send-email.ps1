@@ -67,7 +67,7 @@ $body = @"
 
 # Attachments
 $attachments = @(
-    "./attachments/BGDDV925AE25MD930620.pdf",
+    "./attachments/BGDDV955A225MD930620.pdf",
    "./attachments/passport_copy.pdf",
    "./attachments/Gmail - Request for Appointment Date.pdf",
    "./attachments/AdmissionLetter.de.en (2).pdf"
@@ -77,6 +77,7 @@ $attachments = @(
 Send-MailMessage -From $from -To $to -Bcc $bcc -Subject $subject -Body $body -SmtpServer $smtpServer -Port $smtpPort -UseSsl:$useSsl -Credential $credential -Attachments $attachments -BodyAsHtml:$true
 
 Write-Host "Email sent successfully!"
+
 
 
 
