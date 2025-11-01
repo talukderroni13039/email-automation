@@ -11,13 +11,13 @@ $credential = New-Object System.Management.Automation.PSCredential ($username, $
 
 # --- Email Details ---
 $from = $username
-$to =  $username                      # "hc.dhaka@mea.gov.in"            # Keep your email here for BCC trick
+$to =  "hc.dhaka@mea.gov.in"                    # "hc.dhaka@mea.gov.in"            # Keep your email here for BCC trick
 $bcc = @(
     "visahelp.dhaka@mea.gov.in",
     "hcoffice.dhaka@mea.gov.in"
 )
 
-$subject = "Kind Request for Appointment Date – Double Entry Visa"
+$subject = "Kind Request for Appointment Date for Double Entry Visa"
 $body = @"
 <html>
 <body style='font-family:Segoe UI, Arial, sans-serif; font-size:14px; color:#222; line-height:1.6;'>
@@ -28,7 +28,7 @@ $body = @"
   <p>
     I am writing to seek your kind assistance in obtaining an appointment date for a 
     <strong>Double Entry Visa</strong> to India. I have an appointment at the 
-    <strong>Austrian Embassy in New Delhi on 5th November</strong>, and despite several attempts  including 
+    <strong>Austrian Embassy in New Delhi on 10th November</strong>, and despite several attempts  including 
     submitting the required documents at the High Commission Office, I have been unable to secure a visa 
     appointment for the Double Entry Visa.
   </p>
@@ -76,8 +76,8 @@ $attachments = @(
 # Send email  -Bcc $bcc
 Send-MailMessage -From $from -To $to -Bcc $bcc -Subject $subject -Body $body -SmtpServer $smtpServer -Port $smtpPort -UseSsl:$useSsl -Credential $credential -Attachments $attachments -BodyAsHtml:$true
 
-
 Write-Host "Email sent successfully!"
+
 
 
 
