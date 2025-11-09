@@ -1,8 +1,8 @@
 name: Send Visa Email
 
 on:
-  schedule:
-    - cron: "10 3 * * 2,4,0"   # Runs every Tue, Thu, Sun at 9:30 AM Bangladesh time (UTC+6)
+ # schedule:
+   # - cron: "10 3 * * 2,4,0"   # Runs every Tue, Thu, Sun at 9:30 AM Bangladesh time (UTC+6)
   workflow_dispatch:           # Allow manual run from Actions tab
   push:
     branches:
